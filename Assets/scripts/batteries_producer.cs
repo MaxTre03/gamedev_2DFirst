@@ -3,6 +3,7 @@ using UnityEngine;
 public class batteries_producer : MonoBehaviour
 {
     public GameObject itemPrefab;
+    public GameObject particles;
     public float r;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +27,7 @@ public class batteries_producer : MonoBehaviour
     void spawnObject()
     {
         Vector3 randomPos = Random.insideUnitCircle * r;
+        Instantiate(particles, randomPos, Quaternion.identity);
         Instantiate(itemPrefab, randomPos, Quaternion.identity);
     }
 }
