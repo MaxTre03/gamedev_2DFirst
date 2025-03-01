@@ -9,10 +9,7 @@ public class batteries_producer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            spawnObject();
-        }
+     //   InvokeRepeating(nameof(spawnObject), 0f, 1f);
     }
 
     // Update is called once per frame
@@ -26,8 +23,14 @@ public class batteries_producer : MonoBehaviour
 
     void spawnObject()
     {
-        Vector3 randomPos = Random.insideUnitCircle * r;
-        Instantiate(particles, randomPos, Quaternion.identity);
-        Instantiate(itemPrefab, randomPos, Quaternion.identity);
+        Vector2 randomPos2D = Random.insideUnitCircle * r; // Generates random (x, z) in a circle
+        float yOffset = 7f; // Change this to whatever height you want the objects to start at
+
+        Vector3 spawnPosition = new Vector3(randomPos2D.x, yOffset, randomPos2D.y);
+
+        Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
+    
+    //Instantiate(particles, spawnPosition, Quaternion.identity);
+      //  Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
     }
 }
