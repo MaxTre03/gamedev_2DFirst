@@ -9,7 +9,7 @@ public class batteries_producer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-     //   InvokeRepeating(nameof(spawnObject), 0f, 1f);
+        InvokeRepeating(nameof(spawnObject), 0f, 1f);
     }
 
     // Update is called once per frame
